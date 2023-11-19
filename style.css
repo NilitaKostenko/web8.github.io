@@ -4,113 +4,54 @@
     box-sizing: border-box;
 }
 
-:root {
-    --bg-color: yellow;
-    --primary-color: #FFF;
-    --secondary-color: #AAA;
-    --secondary-bg-color: #454545;
-}
 
-
-
-*:disabled {
-    opacity: 0;
-}
-
-.calculator {
+#feedback-button {
     background-color: yellow;
-    border: 5px solid black;
-    padding: 5px 10px;
-    width: fit-content;
+    border: 2px solid black;
+    padding: 8px;
+}
+
+#modal[data--modal="hidden"]{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
     margin: auto;
-    margin-top: 10px;
 }
 
-.calc-head {
-    padding: 5px 10px;
+#modal[data--modal="shown"]{
+    display: block;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    margin: auto;
 }
 
-.calc-input {
+#modal-inner {
+    display: block;
+    background-color: yellow;
+    width: fit-content;
+    margin: 20px auto;
+    padding: 5px 20px;
+    border: 3px solid ;
+}
+
+#modal-head {
+    display: flex;
+    justify-content: space-between;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
     padding: 10px;
+    width: fit-content;
 }
 
-
-.calc-input select:focus-visible {
-    outline: none;
-}
-
-.calc-input input[type="text"] {
-    width: max-content;
+#submit-button {
+    border: 1px solid;
     padding: 5px;
-}
-
-#calc-radio-group {
-    padding: 5px;
-    border: 3px solid black;
-    background-color: white;
-}
-
-h3 {
-    font-weight: 400;
-    margin-bottom: 3px;
-    text-align: center;
-}
-
-#quantity-outter {
-    width: fit-content;
-    margin: auto;
-}
-
-#product-type-outter {
-    width: fit-content;
-    margin: auto;
-}
-
-#subproducts-outter {
-    width: fit-content;
-    margin: auto;
-}
-
-#subproducts {
-    padding: 5px 10px;
-}
-
-#subproduct-property {
-    padding: 5px 10px;
-}
-
-#product-property-label {
-    margin-left: 5px;
-}
-
-#calc-button-outter {
-    width: fit-content;
-    margin: auto;
-}
-
-#calc-button {
-    padding: 5px;
-}
-
-.calc-result {
-    padding: 5px 10px;
-    width: fit-content;
-    margin: auto;
-}
-
-.calc-result h2 {
-    font-weight: 400;
-    text-align: center;
-}
-
-#result {
-    margin: auto 5px;
-    font-size: 1.5em;
-    display: inline-block;
-    min-width: 50px;
-    min-height: 50px;
-    padding: 0 3px;
-    text-align: center;
-    background-color: white;
-    border: 3px solid black;
 }
