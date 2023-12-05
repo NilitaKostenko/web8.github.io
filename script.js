@@ -17,12 +17,12 @@ function send(event) {
     // Заполняем данные
 
     let data = new FormData();
-    
+
     let inputEls = document.getElementsByClassName("save");
     [...inputEls].forEach(inputEl => {
         data.append(inputEl.id, inputEl.value);
     });
-    
+
     // Устанавливаем обработку на изменение состояния запроса
     request.onreadystatechange = () => {
         if (request.readyState === XMLHttpRequest.DONE) {
@@ -60,6 +60,16 @@ function hide() {
     modal.setAttribute("data--modal", "hidden");
 }
 
+function controlModal() {
+    if(location.hash == "#form") {
+       show();
+    }
+    else {
+       hide();
+    }
+}
+
+
 function saveInput(event) {
     localStorage.setItem(event.target.id, event.target.value);
 }
@@ -72,8 +82,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (history.state.form) {
         show();
     }
-    
-    let feedbackButtonEl = document.getElementById("feedback-button");    
+
+    let feedbackButtonEl = document.getElementById("feedback-button");
     feedbackButtonEl.addEventListener('click', show);
 
     let closeButton = document.getElementById("close-button");
@@ -85,12 +95,13 @@ document.addEventListener('DOMContentLoaded', function () {
         // Загрузка значений в инпуты
         inputEl.value = localStorage.getItem(inputEl.id);
     });
-    
+
     [...inputEls].forEach(inputEl => {
         // Добавляем ивент на сохранение значения
-        inputEl.addEventListener("input", saveInput);
+        inputEl.addEventListener("change", saveInput);
     });
 
     let submitButton = document.getElementById("submit-button");
     submitButton.addEventListener("click", send);
+    window.addEventListener("popstate", controlModal);
 });
